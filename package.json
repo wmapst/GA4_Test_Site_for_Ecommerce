@@ -1,0 +1,30 @@
+{
+  "name": "GA4_Test_Site_for_Ecommerce",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "PORT=80 nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxt/content": "^1.9.0",
+    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/date-fns": "^1.5.0",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/gtm": "^2.4.0",
+    "@nuxtjs/pwa": "^3.0.2",
+    "bootstrap": "^4.5.2",
+    "bootstrap-vue": "^2.17.3",
+    "core-js": "^3.8.2",
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3",
+    "nuxt": "^2.14.6",
+    "pug": "^2.0.0",
+    "pug-loader": "^2.4.0",
+    "pug-plain-loader": "^1.1.0",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^4.3.1"
+  }
+}
