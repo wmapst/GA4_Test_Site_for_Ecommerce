@@ -1,28 +1,31 @@
 <template lang="pug">
 div
   div(v-if="itemShow")
+    div.my-2.col-auto(v-for="itemData in itemDatas")
+      cartItemCard(:itemData="itemData")
     div.my-2.col-auto
-      regiAmountCard(:itemDatas="itemDatas" :orderId="orderId")
+      cartAmountCard(:itemDatas="itemDatas")
   div(v-else)
     div 買い物かごが空っぽです。
 </template>
 
 <script>
-import regiAmountCard from '~/components/parts/regiAmountCard'
+import cartItemCard from '~/components/parts/cartItemCard'
+import cartAmountCard from '~/components/parts/cartAmountCard'
 
 export default {
   components: {
-    regiAmountCard
+    cartItemCard,
+    cartAmountCard
   },
   data() {
     return {
       itemDatas: {},
-      orderId: '',
       itemShow: false,
     };
   },
-  async asyncData({ $axios, $dateFns }) {
-    const localUrl = 'http://127.0.0.1/api';
+  async asyncData({ $axios }) {
+    const localUrl = process.env.BASE_URL_LOCAL;
     const resItemList = await $axios.get(localUrl + '/getItemCartList');
     let itemShow = false;
 
@@ -32,9 +35,8 @@ export default {
 
     return {
       itemDatas: resItemList.data.data,
-      orderId: 'Order_' + $dateFns.format(new Date(), 'yyyyMMddHHmmss'),
       itemShow: itemShow,
     }
-  }
+  }  
 }
 </script>

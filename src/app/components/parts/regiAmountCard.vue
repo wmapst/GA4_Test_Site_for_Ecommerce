@@ -37,7 +37,7 @@ export default {
       event.preventDefault();
 
       try{
-          const localUrl = 'http://127.0.0.1/api';
+          const localUrl = process.env.BASE_URL_LOCAL;
           
           const config = {headers: {"Content-Type": "application/json"}};
 

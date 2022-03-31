@@ -21,7 +21,7 @@ export default {
       event.preventDefault();
       console.log('hoge');
       try{
-          const localUrl = 'http://127.0.0.1/api';
+          const localUrl = process.env.BASE_URL_LOCAL;
           console.log('hoge');
           const config = {headers: {"Content-Type": "application/json"}};
           const res = await this.$axios.get(localUrl + "/deleteItemCart", { params:{ item_id: this.itemData.item_id } });

@@ -18,15 +18,17 @@ export default {
     };
   },
   async asyncData({ $axios }) {
-    const localUrl = 'http://127.0.0.1/api';
-
+    const localUrl = process.env.BASE_URL_LOCAL;
     const resItemList = await $axios.get(localUrl + '/getItemList');
 
     return {
       itemDatas: resItemList.data.data,
     }
-
+  },
+  mounted() {
+    window.dataLayer.push({
+      hoge: 'hoge'
+    })
   }
-  
 }
 </script>

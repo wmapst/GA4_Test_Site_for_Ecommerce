@@ -20,7 +20,7 @@ export default {
     }
   },
   async asyncData({ $axios, params }) {
-    const localUrl = 'http://127.0.0.1/api';
+    const localUrl = process.env.BASE_URL_LOCAL;
 
     const resItemDetail = await $axios.get(localUrl + "/getItemDetail", { params:{ item_id: params.itemId } });
 

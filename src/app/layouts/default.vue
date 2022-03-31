@@ -8,6 +8,20 @@ div
 <script>
 
 export default {
+  head () {
+    return {
+      script:[
+        {
+            innerHTML: `
+            dataLayer.push({
+                hoge: 'hoge' 
+            });
+        `,
+        }
+      ],
+      __dangerouslyDisableSanitizers: ['script'],
+    }
+  },
 }
 </script>
 

@@ -8,7 +8,7 @@ div
     h3 {{ itemData.item_name }}
     b-card-text 価格： ¥{{ itemData.item_price }}
     a(:href="itemData.item_id | itemLink")
-      b-button(block variant="primary") 商品詳細ページ
+      b-button(block variant="primary" @click="selectItem") 商品詳細ページ
 </template>
 
 <script>
@@ -20,6 +20,20 @@ export default {
     itemLink(itemId) {
       return "/item/" + itemId;
     },
+  },
+  methods: {
+    selectItem() {
+      window.dataLayer.push({
+          event: "select_item",
+          ecommerce: {
+            items: [{
+              item_id: this.itemData.item_id,
+              item_name: this.itemData.item_name,
+            }]
+          }
+        }
+      )
+    }
   },
 };
 </script>

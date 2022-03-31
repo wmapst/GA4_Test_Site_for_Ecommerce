@@ -1,5 +1,5 @@
-DROP SCHEMA IF EXISTS ga4_test;
-CREATE SCHEMA ga4_test;
+# DROP SCHEMA IF EXISTS ga4_test;
+# CREATE SCHEMA ga4_test;
 USE ga4_test;
 
 DROP TABLE IF EXISTS mst_item;

@@ -13,15 +13,21 @@ export default {
       orderItemDatas: {}
     }
   },
+  mounted () {
+    window.dataLayer.push({
+      event: "purchase",
+      ecommerce: JSON.stringify(this.ecommerce)
+    });
+  },
   async asyncData({ $axios, route }) {
-    const localUrl = 'http://127.0.0.1/api';
+    const localUrl = process.env.BASE_URL_LOCAL;
     
     const resOrder = await $axios.get(localUrl + "/getOrder", { params:{ order_id: route.query.order_id } });
     const resOrderItem = await $axios.get(localUrl + "/getOrderItem", { params:{ order_id: route.query.order_id } });
     let ecommerce = {
       currency: "JPY",
       transaction_id: resOrder.data.data[0].order_id,
-      value: resOrder.data.data[0].order_amount,
+      value: resOrder.data.data[0].order_total_amount,
       shipping: resOrder.data.data[0].order_shipping_fee,
       tax: resOrder.data.data[0].order_tax_amount,
       items: []
@@ -46,21 +52,6 @@ export default {
       orderItemDatas: resOrderItem.data.data,
       ecommerce: ecommerce,
     };
-  },
-  head () {
-    return {
-      script:[
-        {
-            innerHTML: `
-            dataLayer.push({
-                event: "purchase",
-                ecommerce: ${JSON.stringify(this.ecommerce)}
-            });
-        `,
-        }
-      ],
-      __dangerouslyDisableSanitizers: ['script'],
-    }
   },
 }
 </script>

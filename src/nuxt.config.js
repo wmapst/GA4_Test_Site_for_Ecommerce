@@ -25,7 +25,7 @@ export default {
   loading: { color: 'blue', height: '3px' },
 
   // vueアプリケーション置き場
-  srcDir: 'src/',
+  srcDir: 'app/',
 
   // サーバアプリケーション置き場
   serverMiddleware: [
@@ -64,6 +64,7 @@ export default {
     '@nuxt/content',
     '@nuxtjs/gtm',
     '@nuxtjs/date-fns',
+    '@nuxtjs/dotenv',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

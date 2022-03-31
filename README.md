@@ -1,19 +1,28 @@
 # GA4_Test_Site_for_Ecommerce
 GA4テスト用ダミーECサイト  
-実装済みページ
- - 商品一覧
- - 商品詳細
- - 買い物カゴ
- - レジ
- - 購入完了
+※ページ遷移動作さえできればOKという要件の基、半日程度でザッと作ったので荒があるのはご容赦ください。  
 
-※ページ遷移動作さえできればOKという要件の基、4h程度でザッと作ったので荒があるのはご容赦ください。
-
-以下のファイルを設置して利用してください。
+実装済みページ  
+ - 商品一覧 (src/app/pages/index.vue)
+ - 商品詳細 (src/app/pages/item/index.vue)
+ - 買い物カゴ (src/app/pages/cart/index.vue)
+ - レジ (src/app/pages/regi/index.vue)
+ - 購入完了 (src/app/pages/purchase/index.vue)
+  
+購入完了ページでは、コンバージョントラッキング用のデータ(dataLayer.push)を吐き出しています。  
+  
+# 手順
+1. 環境変数を用意する。
 ```
-/src/.env
+/docker/.env
 GTM_TRACKING_ID='GTM-XXXXXXX'
 ```
 
-DB周りは ga4_test.sql を参照してください。  
-※そのうちdocker-compose化します。
+2. コンテナを起動する。
+```
+cd docker
+docker compose up -d
+```
+
+3. http://127.0.0.1/ にアクセスする。
+
