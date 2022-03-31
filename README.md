@@ -9,7 +9,13 @@ GA4テスト用ダミーECサイト
  - レジ (src/app/pages/regi/index.vue)
  - 購入完了 (src/app/pages/purchase/index.vue)
   
-購入完了ページでは、コンバージョントラッキング用のデータ(dataLayer.push)を吐き出しています。  
+実装済みイベント
+ - add_to_cart
+ - view_item
+ - select_item
+ - purchase
+ - remove_from_cart
+ - begin_checkout
   
 # 手順
 1. 環境変数を用意する。

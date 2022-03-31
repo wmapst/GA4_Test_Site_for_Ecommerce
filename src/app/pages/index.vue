@@ -25,10 +25,5 @@ export default {
       itemDatas: resItemList.data.data,
     }
   },
-  mounted() {
-    window.dataLayer.push({
-      hoge: 'hoge'
-    })
-  }
 }
 </script>

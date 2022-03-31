@@ -21,6 +21,7 @@ export default {
       shippingFee: 300,
       taxAmount: 0,
       taxRate: 0.1,
+      ecommerce: {}
     }
   },
   mounted () {
@@ -31,6 +32,34 @@ export default {
       this.totalAmount += itemData.item_price * itemData.item_quantity;
     }
     this.taxAmount = this.totalAmount * this.taxRate;
+
+    this.ecommerce = {
+      currency: "JPY",
+      value: this.totalAmount,
+      shipping: this.shippingFee,
+      tax: this.taxAmount,
+      items: []
+    };
+
+    for(const itemData of this.itemDatas){
+      this.ecommerce.items.push({
+        item_id: itemData.order_item_id,
+        item_name: itemData.item_brand,
+        price: itemData.order_item_unit_price,
+        currency: "JPY",
+        quantity: itemData.order_item_quantity,
+        item_category: itemData.item_category1,
+        item_category2: itemData.item_category2,
+        item_category3: itemData.item_category3,
+        item_category4: itemData.item_category4,
+        item_category5: itemData.item_category5,
+      });
+    }
+
+    window.dataLayer.push({
+      event: "begin_checkout",
+      ecommerce: JSON.stringify(this.ecommerce)
+    });
   },
   methods: {
     async onSubmit( event ) {

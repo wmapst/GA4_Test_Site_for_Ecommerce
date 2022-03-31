@@ -38,6 +38,7 @@ export default {
         item_id: orderItem.order_item_id,
         item_name: orderItem.item_brand,
         price: orderItem.order_item_unit_price,
+        currency: "JPY",
         quantity: orderItem.order_item_quantity,
         item_category: orderItem.item_category1,
         item_category2: orderItem.item_category2,

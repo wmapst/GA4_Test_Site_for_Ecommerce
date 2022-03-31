@@ -31,6 +31,27 @@ export default {
     async onSubmit( event ) {
       event.preventDefault();
 
+      window.dataLayer.push({
+        event: "add_to_cart",
+          ecommerce: {
+          currency: 'JPY',
+          value: this.itemParams.item_price * this.itemQuantity,
+          items: [{
+            item_id: this.itemParams.item_id,
+            item_name: this.itemParams.item_name,
+            item_brand: this.itemParams.item_brand,
+            item_category: this.itemParams.item_category1,
+            item_category2: this.itemParams.item_category2,
+            item_category3: this.itemParams.item_category3,
+            item_category4: this.itemParams.item_category4,
+            item_category5: this.itemParams.item_category5,
+            price: this.itemParams.item_price,
+            currency: 'JPY',
+            quantity: this.itemQuantity,
+          }]
+        }
+      });
+
       try{
           const localUrl = process.env.BASE_URL_LOCAL;
 

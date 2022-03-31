@@ -33,6 +33,7 @@ export default {
           item_category4: this.itemParams.item_category4,
           item_category5: this.itemParams.item_category5,
           price: this.itemParams.item_price,
+          currency: 'JPY',
         }]
       }
     });
