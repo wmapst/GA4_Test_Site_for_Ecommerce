@@ -1,5 +1,5 @@
 # GA4_Test_Site_for_Ecommerce
-GA4テスト用ダミーECサイト
+GA4テスト用ダミーECサイト  
 実装済みページ
  - 商品一覧
  - 商品詳細
@@ -15,5 +15,5 @@ GA4テスト用ダミーECサイト
 GTM_TRACKING_ID='GTM-XXXXXXX'
 ```
 
-DB周りは ga4_test.sql を参照してください。
+DB周りは ga4_test.sql を参照してください。  
 ※そのうちdocker-compose化します。
