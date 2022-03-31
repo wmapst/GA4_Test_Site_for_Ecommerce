@@ -7,7 +7,12 @@ exports.sqlItemListGet = function() {
     item_name,
     item_brand,
     item_price,
-    item_image_path
+    item_image_path,
+    item_category1,
+    item_category2,
+    item_category3,
+    item_category4,
+    item_category5
     from ga4_test.mst_item
     ;
   `

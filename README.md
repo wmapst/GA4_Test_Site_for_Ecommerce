@@ -14,7 +14,7 @@ GA4テスト用ダミーECサイト
 # 手順
 1. 環境変数を用意する。
 ```
-/docker/.env
+docker/.env
 GTM_TRACKING_ID='GTM-XXXXXXX'
 ```
 

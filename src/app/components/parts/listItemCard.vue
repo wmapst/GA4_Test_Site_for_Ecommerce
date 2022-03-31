@@ -29,6 +29,13 @@ export default {
             items: [{
               item_id: this.itemData.item_id,
               item_name: this.itemData.item_name,
+              item_brand: this.itemData.item_brand,
+              item_category: this.itemData.item_category1,
+              item_category2: this.itemData.item_category2,
+              item_category3: this.itemData.item_category3,
+              item_category4: this.itemData.item_category4,
+              item_category5: this.itemData.item_category5,
+              price: this.itemData.item_price,
             }]
           }
         }
