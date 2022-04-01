@@ -24,12 +24,12 @@ services:
     container_name: node_web
     restart: always
     ports:
-       - "80:80"
+       - "80:3000"
     depends_on:
       node_db:
         condition: service_started
     volumes:
-       - ../src:/usr/src/app
+       - ../src:/home/app
     environment:
       TZ: 'Asia/Tokyo'
       CHOKIDAR_USEPOLLING: "true"
@@ -37,7 +37,7 @@ services:
       BASE_URL_LOCAL: ${BASE_URL_LOCAL}
     command: > 
       bash -c "
-      cd /usr/src/app && 
+      cd /home/app && 
       npm install && 
       npm run dev
       "

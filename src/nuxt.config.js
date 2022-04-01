@@ -1,5 +1,3 @@
-require('dotenv').config({path: './src/.env'})
-
 export default {
   ssr:'true',
 
@@ -64,7 +62,6 @@ export default {
     '@nuxt/content',
     '@nuxtjs/gtm',
     '@nuxtjs/date-fns',
-    '@nuxtjs/dotenv',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
