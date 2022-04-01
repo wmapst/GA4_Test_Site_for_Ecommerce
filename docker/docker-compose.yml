@@ -32,7 +32,6 @@ services:
        - ../src:/usr/src/app
     environment:
       TZ: 'Asia/Tokyo'
-      HOST: 0.0.0.0
       CHOKIDAR_USEPOLLING: "true"
       GTM_TRACKING_ID: ${GTM_TRACKING_ID}
       BASE_URL_LOCAL: ${BASE_URL_LOCAL}
