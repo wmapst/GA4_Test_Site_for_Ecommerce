@@ -34,7 +34,6 @@ services:
       TZ: 'Asia/Tokyo'
       HOST: '0.0.0.0'
       CHOKIDAR_USEPOLLING: true
-      GTM_TRACKING_ID: ${GTM_TRACKING_ID}
     command: > 
       bash -c "
       cd /usr/src/app && 

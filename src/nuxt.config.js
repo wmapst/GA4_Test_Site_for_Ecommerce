@@ -1,3 +1,5 @@
+require('dotenv').config({path: './app/.env'})
+
 export default {
   ssr:'true',
 
@@ -56,13 +58,9 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
-    // https://go.nuxtjs.dev/content
-    '@nuxt/content',
+    '@nuxtjs/dotenv',
     '@nuxtjs/gtm',
     '@nuxtjs/date-fns',
-    '@nuxtjs/dotenv',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
