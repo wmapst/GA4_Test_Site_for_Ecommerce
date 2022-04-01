@@ -35,6 +35,7 @@ services:
       HOST: 0.0.0.0
       CHOKIDAR_USEPOLLING: true
       GTM_TRACKING_ID: ${GTM_TRACKING_ID}
+      BASE_URL_LOCAL: ${BASE_URL_LOCAL}
     command: > 
       bash -c "
       cd /usr/src/app && 
