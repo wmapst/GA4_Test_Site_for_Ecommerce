@@ -13,11 +13,11 @@ services:
        - ./mysql/conf/my.cnf:/etc/mysql/my.cnf
        - ./mysql/init:/docker-entrypoint-initdb.d
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: ga4_test
-      MYSQL_USER: user
-      MYSQL_PASSWORD: user
-      TZ: 'Asia/Tokyo'
+       - MYSQL_ROOT_PASSWORD: root
+       - MYSQL_DATABASE: ga4_test
+       - MYSQL_USER: user
+       - MYSQL_PASSWORD: user
+       - TZ: 'Asia/Tokyo'
 
   node_web:
     image: node:16.13.2
@@ -31,11 +31,11 @@ services:
     volumes:
        - ../src:/usr/src/app
     environment:
-      TZ: 'Asia/Tokyo'
-      HOST: 0.0.0.0
-      CHOKIDAR_USEPOLLING: "true"
-      GTM_TRACKING_ID: ${GTM_TRACKING_ID}
-      BASE_URL_LOCAL: ${BASE_URL_LOCAL}
+       - TZ: 'Asia/Tokyo'
+       - HOST: 0.0.0.0
+       - CHOKIDAR_USEPOLLING: "true"
+       - GTM_TRACKING_ID: ${GTM_TRACKING_ID}
+       - BASE_URL_LOCAL: ${BASE_URL_LOCAL}
     command: > 
       bash -c "
       cd /usr/src/app && 
