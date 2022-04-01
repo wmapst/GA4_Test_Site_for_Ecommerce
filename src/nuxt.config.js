@@ -62,6 +62,7 @@ export default {
     '@nuxt/content',
     '@nuxtjs/gtm',
     '@nuxtjs/date-fns',
+    '@nuxtjs/dotenv',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

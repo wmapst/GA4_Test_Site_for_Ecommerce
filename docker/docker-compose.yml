@@ -24,7 +24,7 @@ services:
     container_name: node_web
     restart: always
     ports:
-       - "80:3000"
+       - "80:80"
     depends_on:
       node_db:
         condition: service_started
@@ -32,9 +32,9 @@ services:
        - ../src:/usr/src/app
     environment:
       TZ: 'Asia/Tokyo'
-      CHOKIDAR_USEPOLLING: "true"
+      HOST: '0.0.0.0'
+      CHOKIDAR_USEPOLLING: true
       GTM_TRACKING_ID: ${GTM_TRACKING_ID}
-      BASE_URL_LOCAL: ${BASE_URL_LOCAL}
     command: > 
       bash -c "
       cd /usr/src/app && 

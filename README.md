@@ -22,7 +22,6 @@ GA4テストサイト ecommerce向け
 ```
 docker/.env
 GTM_TRACKING_ID='GTM-XXXXXXX'
-BASE_URL_LOCAL='http://127.0.0.1/api'
 ```
 
 2. コンテナを起動する。
