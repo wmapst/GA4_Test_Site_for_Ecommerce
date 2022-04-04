@@ -27,7 +27,7 @@ services:
     container_name: node_web
     restart: always
     ports:
-       - "3000:3000"
+       - "80:80"
     depends_on:
        - node_db
     volumes:
@@ -45,26 +45,6 @@ services:
     networks:
       app_net: 
         ipv4_address: '172.18.0.4'
-
-  https-portal:
-    image: steveltn/https-portal:latest
-    container_name: https-portal
-    depends_on:
-       - node_web
-    ports:
-       - '80:80'
-       - '443:443'
-    restart: always
-    volumes:
-       - ./ssl_certs:/var/lib/https-portal
-    environment:
-      DOMAINS: '${HOST_DOMAIN} -> http://node_web:3000/'
-      STAGE: '${PRODUCTION_STAGE}'
-      CLIENT_MAX_BODY_SIZE: 64M
-      TZ: 'Asia/Tokyo'
-    networks: 
-      app_net: 
-        ipv4_address: '172.18.0.5'
 
 networks:
   app_net: 
