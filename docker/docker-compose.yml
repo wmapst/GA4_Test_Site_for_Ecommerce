@@ -40,8 +40,8 @@ services:
     command: > 
       bash -c "
       cd /usr/src/app && 
-      sudo npm install && 
-      sudo npm run dev
+      npm install && 
+      npm run dev
       "
     networks:
       app_net: 
