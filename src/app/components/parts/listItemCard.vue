@@ -5,7 +5,7 @@ div
       b-img-lazy.mb-3(:src="itemData.item_image_path" :alt="itemData.item_name" fluid center style="object-fit: cover; height: 22rem; width: 100%;")
     div(v-else)
       b-img-lazy.mb-3(src="/image/user/no-image-320.png" :alt="itemData.item_name" fluid center style="object-fit: cover; height: 22rem; width: 100%;")    
-    h3 {{ itemData.item_name }}
+    h3 {{ itemData.item_brand }} / {{ itemData.item_name }}
     b-card-text 価格： ¥{{ itemData.item_price }}
     a(:href="itemData.item_id | itemLink")
       b-button(block variant="primary" @click="selectItem") 商品詳細ページ

@@ -58,7 +58,7 @@ export default {
 
     window.dataLayer.push({
       event: "begin_checkout",
-      ecommerce: JSON.stringify(this.ecommerce)
+      ecommerce: this.ecommerce
     });
   },
   methods: {

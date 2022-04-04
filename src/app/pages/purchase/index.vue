@@ -16,7 +16,7 @@ export default {
   mounted () {
     window.dataLayer.push({
       event: "purchase",
-      ecommerce: JSON.stringify(this.ecommerce)
+      ecommerce: this.ecommerce
     });
   },
   async asyncData({ $axios, route }) {
