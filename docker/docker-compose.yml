@@ -23,7 +23,8 @@ services:
         ipv4_address: '172.18.0.2'
 
   node_web:
-    image: node:16.13.2
+    build: .
+    #image: node:16.13.2
     container_name: node_web
     restart: always
     ports:
@@ -35,7 +36,7 @@ services:
     environment:
       TZ: 'Asia/Tokyo'
       HOST: '0.0.0.0'
-      CHOKIDAR_USEPOLLING: true
+      CHOKIDAR_USEPOLLING: 'true'
     command: > 
       bash -c "
       cd /usr/src/app && 
