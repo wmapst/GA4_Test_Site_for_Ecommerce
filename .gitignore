@@ -1,4 +1,6 @@
 docker/mysql/data
+docker/ssl_certs
+
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template

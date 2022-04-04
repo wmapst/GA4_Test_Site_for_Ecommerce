@@ -3,7 +3,7 @@ version: '3.3'
 services:
   node_db:
     image: mysql:5.7
-    #platform: 'linux/amd64'
+    # platform: linux/x86_64
     container_name: node_db
     restart: always
     ports:
@@ -18,16 +18,18 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: user
       TZ: 'Asia/Tokyo'
+    networks: 
+      app_net: 
+        ipv4_address: '172.18.0.2'
 
   node_web:
     image: node:16.13.2
     container_name: node_web
     restart: always
     ports:
-       - "80:80"
+       - "3000:3000"
     depends_on:
-      node_db:
-        condition: service_started
+       - node_db
     volumes:
        - ../src:/usr/src/app
     environment:
@@ -40,3 +42,35 @@ services:
       npm install && 
       npm run dev
       "
+    networks:
+      app_net: 
+        ipv4_address: '172.18.0.4'
+
+  https-portal:
+    image: steveltn/https-portal:latest
+    container_name: https-portal
+    depends_on:
+       - node_web
+    ports:
+       - '80:80'
+       - '443:443'
+    restart: always
+    volumes:
+       - ./ssl_certs:/var/lib/https-portal
+    environment:
+      DOMAINS: '${HOST_DOMAIN} -> http://node_web:3000/'
+      STAGE: '${PRODUCTION_STAGE}'
+      CLIENT_MAX_BODY_SIZE: 64M
+      TZ: 'Asia/Tokyo'
+    networks: 
+      app_net: 
+        ipv4_address: '172.18.0.5'
+
+networks:
+  app_net: 
+    driver: bridge
+    ipam: 
+      driver: default
+      config:
+       - subnet: '172.18.0.0/16'
+
