@@ -17,19 +17,3 @@ GA4テストサイト ecommerce向け
  - remove_from_cart
  - begin_checkout
   
-# 手順
-1. 環境変数を用意する。
-```
-vi src/app/.env
-GTM_TRACKING_ID='GTM-XXXXXXX'
-BASE_URL_LOCAL='http://127.0.0.1/api'
-```
-
-2. コンテナを起動する。
-```
-cd docker
-docker compose up -d
-```
-
-3. http://127.0.0.1/ にアクセスする。
-
