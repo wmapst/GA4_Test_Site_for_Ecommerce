@@ -31,14 +31,14 @@ services:
     depends_on:
        - node_db
     volumes:
-       - ../src:/usr/src/app
+       - ../src:/home/app
     environment:
       TZ: 'Asia/Tokyo'
       HOST: '0.0.0.0'
       CHOKIDAR_USEPOLLING: 'true'
     command: > 
       bash -c "
-      cd /usr/src/app && 
+      cd /home/app && 
       npm install && 
       npm run build &&
       npm run start
