@@ -2,9 +2,9 @@
 div 
   b-card.list-card(tag="div" style="width: 100%")
     b-card-title {{ orderId }}
-    b-card-text 合計金額： ¥{{ totalAmount }}
     b-card-text 送料： ¥{{ shippingFee }}
-    b-card-text 消費税(内税)： ¥{{ totalAmount }}
+    b-card-text 合計金額： ¥{{ totalAmount }}
+    b-card-text 消費税(内税)： ¥{{ taxAmount }}
     b-form(@submit="onSubmit")
       b-button(type="submit" variant="primary") 決済確定
 </template>
