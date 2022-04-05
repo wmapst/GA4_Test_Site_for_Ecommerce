@@ -4,7 +4,7 @@ div
     b-card-title {{ orderId }}
     b-card-text 合計金額： ¥{{ totalAmount }}
     b-card-text 送料： ¥{{ shippingFee }}
-    b-card-text 消費税(内税)： ¥{{ totalAmount * taxRate }}
+    b-card-text 消費税(内税)： ¥{{ totalAmount }}
     b-form(@submit="onSubmit")
       b-button(type="submit" variant="primary") 決済確定
 </template>
@@ -31,6 +31,7 @@ export default {
     for(const itemData of this.itemDatas) {
       this.totalAmount += itemData.item_price * itemData.item_quantity;
     }
+    this.totalAmount = this.totalAmount + this.shippingFee;
     this.taxAmount = this.totalAmount * this.taxRate;
 
     this.ecommerce = {

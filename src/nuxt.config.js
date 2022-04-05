@@ -17,7 +17,7 @@ export default {
   },
 
   server:{
-    port: 80,
+    port: 3000,
     host: '0.0.0.0'
   },
 
@@ -74,7 +74,7 @@ export default {
     proxy: true,
   },
   proxy: {
-    '/api/': process.env.BASE_URL_LOCAL
+    //'/api/': process.env.BASE_URL_LOCAL
   },
 
   plugins: [
