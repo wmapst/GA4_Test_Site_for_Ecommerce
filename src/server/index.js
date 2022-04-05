@@ -154,6 +154,19 @@ app.get('/getOrderItem', (req, res) => {
   connection.end();
 });
 
+// 注文一覧データ取得
+app.get('/getOrderList', (req, res) => {
+  const connection = mysql.createConnection(db_setting);
+  connection.connect();
+  const sql = sql_source.sqlOrderListGet();
+  connection.execute(sql, function (err, rows, fields) {
+    if (err) {res.json({status: 500, error: "fail to post your information"});}
+    else {res.json({status: 200, data: rows});}
+  });
+  connection.end();
+});
+
+
 module.exports = {
   path: '/api',
   handler: app

@@ -1,5 +1,7 @@
 <template lang="pug">
-div 
+div
+  b-card.my-2.list-card(tag="div" style="width: 100%") 
+    b-card-text ページビュー → event: "begin_checkout", ecommerce: {{ ecommerce }}
   b-card.list-card(tag="div" style="width: 100%")
     b-card-title {{ orderId }}
     b-card-text 送料： ¥{{ shippingFee }}

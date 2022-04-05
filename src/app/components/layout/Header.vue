@@ -6,6 +6,8 @@ div
       b-navbar-nav
         li.nav-item
           a.nav-link(href="/cart") cart
+        li.nav-item
+          a.nav-link(href="/order_history") order_history
         //li.nav-item
           a.nav-link(href="/regi") regi
         //li.nav-item

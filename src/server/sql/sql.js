@@ -173,11 +173,29 @@ exports.sqlOrderItemGet = function() {
     it.item_category2,
     it.item_category3,
     it.item_category4,
-    it.item_category5
+    it.item_category5,
+    it.item_image_path
     from ga4_test.tbl_order_item as od
     inner join ga4_test.mst_item as it
     on od.order_item_id = it.item_id
     where od.order_id = ?
+    ;
+  `
+
+  return strsql
+}
+
+// 注文一覧データ取得
+exports.sqlOrderListGet = function() {
+  const strsql = 
+  `
+    select
+    order_id,
+    order_shipping_fee,
+    order_tax_amount,
+    order_total_amount
+    from ga4_test.tbl_order
+    order by order_id desc
     ;
   `
 

@@ -1,7 +1,8 @@
 <template lang="pug">
 div
-  div 注文完了
-  div {{ ecommerce }}
+  b-card.my-2.list-card(tag="div" style="width: 100%") 
+    b-card-text ページビュー → event: "view_item", ecommerce: {{ ecommerce }}
+  div 注文完了しました。
 </template>
 
 <script>
